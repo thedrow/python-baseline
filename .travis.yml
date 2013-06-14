@@ -4,10 +4,9 @@ rvm:
 language: python
 python:
   - "2.7"
-before-install:
-  - sudo apt-get update -q
 install:
   - pip install -r requirements.txt --use-mirrors
+  - sudo apt-get update -q
   - sudo apt-get install -q virtualbox --fix-missing
   - sudo apt-get install -q vagrant --fix-missing
   - sudo vagrant plugin install vagrant-plugin-bundler
