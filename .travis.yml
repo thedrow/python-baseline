@@ -13,7 +13,7 @@ install:
   - sudo vagrant plugin install vagrant-plugin-bundler
 script:
   - vagrant up
-  - nose2
+  - nose2 --verbose
   - vagrant package python-baseline
 after-script:
   - vagrant halt
