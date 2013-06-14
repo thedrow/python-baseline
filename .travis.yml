@@ -12,9 +12,9 @@ install:
   - sudo dpkg -i vagrant_1.2.2_x86_64.deb
   - sudo vagrant plugin install vagrant-plugin-bundler
 script:
-  - vagrant up
+  - sudo vagrant up
   - nose2 --verbose
-  - vagrant package python-baseline
+  - sudo vagrant package python-baseline
 after-script:
-  - vagrant halt
-  - vagrant destroy
+  - sudo vagrant halt
+  - sudo vagrant destroy
