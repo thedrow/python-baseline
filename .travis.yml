@@ -6,11 +6,11 @@ python:
   - "2.7"
 before-install:
   - sudo apt-get update -qq
-  - apt-get install -qq virtualbox-4.2
 install:
-  - gem install vagrant
   - pip install -r requirements.txt --use-mirrors
-  - vagrant plugin install vagrant-plugin-bundler
+  - sudo apt-get install -q virtualbox-4.2
+  - sudo apt-get install -q vagrant
+  - sudo vagrant plugin install vagrant-plugin-bundler
 script:
   - vagrant up
   - nose2
