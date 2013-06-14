@@ -1,0 +1,25 @@
+language: ruby
+rvm:
+  - 1.9.3
+matrix:
+  include:
+    - { rvm: 1.9.3, env: vagrant=1.2.2 }
+before-install:
+  - sudo apt-get update -qq
+  - apt-get install -qq virtualbox-4.2
+before-script:
+  - vagrant plugin install vagrant-plugin-bundler
+script:
+  - vagrant up
+  - vagrant package python-baseline
+
+language: python
+python:
+  - "2.7"
+install:
+  - pip install -r requirements.txt --use-mirrors
+script:
+  - nose2
+after-script:
+  - vagrant halt
+  - vagrant destroy
