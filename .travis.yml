@@ -7,13 +7,11 @@ python:
 install:
   - pip install -r requirements.txt --use-mirrors
   - sudo apt-get update -q
-  - sudo apt-get install -q virtualbox-ose-dkms
+  - sudo apt-get install -q linux-headers-generic --fix-missing
   - sudo apt-get install -q virtualbox --fix-missing
   - sudo wget -nv http://files.vagrantup.com/packages/7e400d00a3c5a0fdf2809c8b5001a035415a607b/vagrant_1.2.2_x86_64.deb
   - sudo dpkg -i vagrant_1.2.2_x86_64.deb
   - sudo vagrant plugin install vagrant-plugin-bundler
-before-script:
-  - VBoxManage --version
 script:
   - sudo vagrant up
   - nose2 --verbose
