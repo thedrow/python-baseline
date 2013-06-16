@@ -1,7 +1,6 @@
 toolchain:
-  pkgs:
-    - installed
-      - names:
+  pkg.latest:
+      - pkgs:
         - build-essential
         - zlib1g-dev
         - libbz2-dev
