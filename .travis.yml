@@ -14,7 +14,10 @@ install:
 script:
   - sudo vagrant up # The error is only presented when executing vagrant up
   - nose2 --verbose
-  - sudo vagrant package python-baseline
+  - sudo vagrant package precise64 --output python-baseline-precise64.box
+  - sudo vagrant package precise32 --output python-baseline-precise32.box
+  - sudo vagrant package lucid64 --output python-baseline-lucid64.box
+  - sudo vagrant package lucid32 --output python-baseline-lucid32.box
 after-script:
   - sudo vagrant halt
   - sudo vagrant destroy
